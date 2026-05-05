@@ -29,7 +29,7 @@ jobs:
       - name: preparar sitio
         run: |
           mkdir site
-          cp proyecto.pdf site/proyecto.pdf
+          cp es.pdf site/proyecto.pdf
 
           cat > site/index.html << 'EOF'
           <!DOCTYPE html>
