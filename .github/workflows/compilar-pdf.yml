@@ -17,14 +17,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: install LaTeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-latex-extra texlive-lang-spanish texlive-fonts-recommended texlive-fonts-extra
-
       - name: compilar PDF
-        run: |
-          latexmk -pdf -interaction=nonstopmode -jobname=es proyecto.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: proyecto.tex
+          args: -pdf -interaction=nonstopmode -jobname=es
 
       - name: preparar sitio
         run: |
