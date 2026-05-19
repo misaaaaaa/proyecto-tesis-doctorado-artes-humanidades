@@ -6,8 +6,26 @@
 
 \section{Plan de trabajo}
 
-\subsection{2026}
+\begin{ganttchart}[
+    vgrid,
+    hgrid,
+    title/.style={fill=none},
+    title label font=\bfseries,
+    bar/.style={fill=blue!40},
+    bar height=0.6
+]{1}{12}
 
-\subsection{2027}
+% timeline
+\gantttitle{2026}{12} \\
+\gantttitlelist{1,...,12}{1} \\
+
+% tasks
+\ganttbar{Research}{1}{2} \\
+\ganttbar{Planning}{2}{3} \\
+\ganttbar{Implementation}{4}{8} \\
+\ganttbar{Testing}{9}{10} \\
+\ganttbar{Launch}{11}{12}
+
+\end{ganttchart}
 
 \end{document}
