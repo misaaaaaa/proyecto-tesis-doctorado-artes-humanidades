@@ -6,25 +6,31 @@
 
 \chapter{Plan de trabajo}
 
+Este plan de trabajo incluye los siguientes hitos a través del programa doctoral:
 \begin{ganttchart}[
     vgrid,
     hgrid,
-    title/.style={fill=none},
-    title label font=\bfseries,
-    bar/.style={fill=blue!40},
-    bar height=0.6
-]{1}{12}
+    time slot format=isodate-yearmonth,
+]{1}{48}
 
-% timeline
-\gantttitle{2026}{12} \\
+% agnos
+\gantttitle{2025}{12}
+\gantttitle{2026}{12}
+\gantttitle{2027}{12}
+\gantttitle{2028}{12} \\
+
+% meses
+\gantttitlelist{1,...,12}{1}
+\gantttitlelist{1,...,12}{1}
+\gantttitlelist{1,...,12}{1}
 \gantttitlelist{1,...,12}{1} \\
 
-% tasks
-\ganttbar{Research}{1}{2} \\
-\ganttbar{Planning}{2}{3} \\
-\ganttbar{Implementation}{4}{8} \\
-\ganttbar{Testing}{9}{10} \\
-\ganttbar{Launch}{11}{12}
+% tareas
+\ganttbar{Research}{1}{8} \\
+\ganttbar{Planning}{6}{12} \\
+\ganttbar{Implementation}{13}{30} \\
+\ganttbar{Testing}{31}{40} \\
+\ganttbar{Launch}{41}{48}
 
 \end{ganttchart}
 
