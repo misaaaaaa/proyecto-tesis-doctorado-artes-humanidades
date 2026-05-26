@@ -17,16 +17,19 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: compilar PDF
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: proyecto.tex
-          args: -pdf -interaction=nonstopmode -jobname=es
+      - name: compile PDF
+        run: |
+          latexmk \
+            -xelatex \
+            -interaction=nonstopmode \
+            -file-line-error \
+            -bibtex-cond \
+            principal.tex
 
       - name: preparar sitio
         run: |
           mkdir site
-          cp es.pdf site/proyecto.pdf
+          cp proyecto.pdf site/proyecto.pdf
 
           cat > site/index.html << 'EOF'
           <!DOCTYPE html>
