@@ -17,14 +17,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: compile PDF
-        run: |
-          latexmk \
-            -xelatex \
-            -interaction=nonstopmode \
-            -file-line-error \
-            -bibtex-cond \
-            principal.tex
+      - name: compilar PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: proyecto.tex
+          args: -pdf -interaction=nonstopmode -jobname=es
 
       - name: preparar sitio
         run: |
