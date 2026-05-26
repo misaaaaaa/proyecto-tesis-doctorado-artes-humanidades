@@ -21,34 +21,12 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: proyecto.tex
-          compiler: latexmk
-          args: -xelatex -interaction=nonstopmode -file-line-error
-          extra_system_packages: |
-            biber
-            fonts-noto
-            fonts-noto-core
-            fonts-noto-extra
-
-      - name: mostrar archivos generados
-        run: |
-          echo "===== archivos ====="
-          ls -lah
-
-      - name: mostrar logs si falla
-        if: failure()
-        run: |
-          echo "===== LOGS ====="
-
-          find . -name "*.log" -exec sh -c 'echo "---- {} ----"; cat "{}"' \;
-
-          echo "===== BLG ====="
-
-          find . -name "*.blg" -exec sh -c 'echo "---- {} ----"; cat "{}"' \;
+          args: -pdf -interaction=nonstopmode -jobname=es
 
       - name: preparar sitio
         run: |
           mkdir site
-          cp proyecto.pdf site/proyecto.pdf
+          cp es.pdf site/proyecto.pdf
 
           cat > site/index.html << 'EOF'
           <!DOCTYPE html>
@@ -57,20 +35,18 @@ jobs:
             <meta charset="utf-8">
             <title>montoyamoraga - proyecto tesis</title>
             <style>
-              body {
-                margin: 0;
-                background: #111;
-              }
-
-              iframe {
-                width: 100%;
-                height: 100vh;
-                border: none;
-              }
+              body { font-family: sans-serif; margin: 0; }
+              iframe { width: 100%; height: 100vh; border: none; }
             </style>
           </head>
           <body>
-            <iframe src="proyecto.pdf"></iframe>
+            <iframe id="viewer" src="proyecto.pdf"></iframe>
+
+            <script>
+              function loadPDF(file) {
+                document.getElementById('viewer').src = file;
+              }
+            </script>
           </body>
           </html>
           EOF
@@ -83,7 +59,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
