@@ -29,17 +29,21 @@ jobs:
             fonts-noto-core
             fonts-noto-extra
 
+      - name: mostrar archivos generados
+        run: |
+          echo "===== archivos ====="
+          ls -lah
+
       - name: mostrar logs si falla
         if: failure()
         run: |
-          echo "===== proyecto.log ====="
-          cat proyecto.log || true
+          echo "===== LOGS ====="
 
-          echo "===== proyecto.blg ====="
-          cat proyecto.blg || true
+          find . -name "*.log" -exec sh -c 'echo "---- {} ----"; cat "{}"' \;
 
-          echo "===== archivos generados ====="
-          ls -lah
+          echo "===== BLG ====="
+
+          find . -name "*.blg" -exec sh -c 'echo "---- {} ----"; cat "{}"' \;
 
       - name: preparar sitio
         run: |
@@ -48,32 +52,23 @@ jobs:
 
           cat > site/index.html << 'EOF'
           <!DOCTYPE html>
-          <html lang="es">
+          <html>
           <head>
             <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
             <title>montoyamoraga - proyecto tesis</title>
-
             <style>
-              html, body {
+              body {
                 margin: 0;
-                padding: 0;
                 background: #111;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                font-family: sans-serif;
               }
 
               iframe {
-                width: 100vw;
+                width: 100%;
                 height: 100vh;
                 border: none;
               }
             </style>
           </head>
-
           <body>
             <iframe src="proyecto.pdf"></iframe>
           </body>
