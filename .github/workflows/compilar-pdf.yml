@@ -21,12 +21,12 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: proyecto.tex
-          args: -pdf -interaction=nonstopmode -jobname=es
+          args: -pdf -interaction=nonstopmode -jobname=proyecto
 
       - name: preparar sitio
         run: |
           mkdir site
-          cp es.pdf site/proyecto.pdf
+          cp proyecto.pdf site/proyecto.pdf
 
           cat > site/index.html << 'EOF'
           <!DOCTYPE html>
