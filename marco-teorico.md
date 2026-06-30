@@ -46,6 +46,10 @@ cuestiona la definición de energía de colegio
 
 ya sabes de qué trata. este tipo de textos te ayudan a orientar la creación tecnológica como estilo de vida y motor creativo
 
+`Sara Ahmed, Fenomenología queer: orientaciones, objetos, otros, trad. Patricia Scott (Caja Negra, 2024).`
+
+"Si la orientación permite que lo extraño se vuelva familiar a partir de habitar los espacios como si fueran extensiones de nuestra piel, entonces la desorientación sucede cuando esa operación falla." este es un strech, inspirado en la des~orientación de oli, pero qué pasa con los componentes electrónicos cuando se vinculan unos a otros? nada es lo mismo, las relaciones se amplifican y la mirada de cada componente se distorsiona según lo que tiene al lado. Creo que al final conectar cosas es desencializarlas, lo que pasa entre componentes humanes y no-humanes (me carga esa expresión, pero se entiende la idea)
+
 ## música
 
 `Julio Mendívil, En Contra de La Música: Herramientas Para Pensar, Comprender y Vivir Las Músicas, 3ra edición corregida (Gourmet Musical Ediciones, 2023).`
